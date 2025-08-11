@@ -34,3 +34,10 @@
 [submodule "pack/manual/start/vimtex"]
 	path = pack/manual/start/vimtex
 	url = https://github.com/lervag/vimtex.git
+[submodule "pack/manual/start/nvim-surround"]
+	path = pack/manual/start/nvim-surround
+	url = https://github.com/kylechui/nvim-surround.git
+[submodule "pack/manual/start/nvim-treesitter"]
+	path = pack/manual/start/nvim-treesitter
+	url = https://github.com/nvim-treesitter/nvim-treesitter.git
+	branch = main
