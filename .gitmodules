@@ -1,0 +1,36 @@
+[submodule "pack/manual/start/bufdelete.nvim"]
+	path = pack/manual/start/bufdelete.nvim
+	url = https://github.com/famiu/bufdelete.nvim.git
+[submodule "pack/manual/start/LuaSnip"]
+	path = pack/manual/start/LuaSnip
+	url = https://github.com/L3MON4D3/LuaSnip.git
+[submodule "pack/manual/start/here.term"]
+	path = pack/manual/start/here.term
+	url = https://github.com/jaimecgomezz/here.term.git
+[submodule "pack/manual/start/marks.nvim"]
+	path = pack/manual/start/marks.nvim
+	url = https://github.com/chentoast/marks.nvim.git
+[submodule "pack/manual/start/mason-lspconfig.nvim"]
+	path = pack/manual/start/mason-lspconfig.nvim
+	url = https://github.com/mason-org/mason-lspconfig.nvim.git
+[submodule "pack/manual/start/mason.nvim"]
+	path = pack/manual/start/mason.nvim
+	url = https://github.com/mason-org/mason.nvim.git
+[submodule "pack/manual/start/nvim-lspconfig"]
+	path = pack/manual/start/nvim-lspconfig
+	url = https://github.com/neovim/nvim-lspconfig.git
+[submodule "pack/manual/start/oil.nvim"]
+	path = pack/manual/start/oil.nvim
+	url = https://github.com/stevearc/oil.nvim.git
+[submodule "pack/manual/start/plenary.nvim"]
+	path = pack/manual/start/plenary.nvim
+	url = https://github.com/nvim-lua/plenary.nvim.git
+[submodule "pack/manual/start/telescope.nvim"]
+	path = pack/manual/start/telescope.nvim
+	url = https://github.com/nvim-telescope/telescope.nvim.git
+[submodule "pack/manual/start/vim-startify"]
+	path = pack/manual/start/vim-startify
+	url = https://github.com/mhinz/vim-startify.git
+[submodule "pack/manual/start/vimtex"]
+	path = pack/manual/start/vimtex
+	url = https://github.com/lervag/vimtex.git
