@@ -16,7 +16,8 @@ const ld infd = numeric_limits<ld>::infinity();
 #define show(arr) for (auto x : arr) cout << x << " "; cout << endl
 #define FOR(v,l,h) for (int v = l; v < h; v ++)
 
-signed main() {{
+signed main()
+{{
     {}
 }}
 ]]

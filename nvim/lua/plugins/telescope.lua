@@ -1,3 +1,12 @@
+require("telescope").setup({
+    extensions = {
+        undo = {
+            side_by_side = true,
+        },
+    },
+})
+require("telescope").load_extension("undo")
+
 local builtin = require('telescope.builtin')
 
 vim.keymap.set('n', '<leader>ff', builtin.find_files,
@@ -27,4 +36,7 @@ vim.keymap.set('n', '<leader>fr', builtin.resume,
     { desc = 'Telescope resume picker' })
 vim.keymap.set('n', '<leader>fp', builtin.builtin,
     { desc = 'Telescope browse pickers' })
+
+vim.keymap.set('n', '<leader>fu', "<cmd>Telescope undo<cr>",
+    { desc = 'Telescope browse undo tree' })
 

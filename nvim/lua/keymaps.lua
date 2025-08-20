@@ -1,20 +1,15 @@
-vim.keymap.set('n', '<C-a>', 'o<Esc>')
-vim.keymap.set('n', '<C-z>', 'O<Esc>')
+local wezterm = require('wezterm')
 
-function start_cmd(prefix)
-    return function()
-        local dir = vim.fn.fnamemodify(vim.fn.expand("%:p"), ":h")
-        local command = prefix .. ' --cwd "' .. dir ..
-        '" -- cmd /k "set NVIM_LISTEN_ADDRESS=' .. vim.v.servername .. '"'
-        os.execute(command)
-    end
-end
-
-vim.keymap.set('n', '<M-;>', start_cmd('wezterm cli split-pane --percent 30'))
-vim.keymap.set('n', '<M-:>', start_cmd('wezterm cli spawn'))
+vim.keymap.set('n', '<M-;>', wezterm.start_cmd(wezterm.split))
+vim.keymap.set('n', '<M-:>', wezterm.start_cmd(wezterm.spawn))
 
 vim.api.nvim_create_user_command("SS", "tabnew | Startify", {})
 vim.api.nvim_create_user_command("TT", "Bd | Startify", {})
+
+vim.api.nvim_create_user_command("Q", "mks! | qa", {})
+vim.api.nvim_create_user_command("WQ", "w | mks! | qa", {})
+
+vim.g.mapleader = " "
 
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist,
     { desc = "List diagnostics" })

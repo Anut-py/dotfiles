@@ -1,3 +1,4 @@
+require("plugins.cmp")
 require("plugins.luasnip")
 require("plugins.marks")
 require("plugins.mason")
