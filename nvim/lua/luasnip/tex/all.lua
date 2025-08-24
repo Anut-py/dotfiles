@@ -1,5 +1,5 @@
 return {
-    s({trig=";ee", snippetType="autosnippet", wordTrig=false},
+    s({trig=";e", snippetType="autosnippet", wordTrig=false},
         fmta(
             [[
                 \begin{<>}

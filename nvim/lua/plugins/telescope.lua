@@ -4,6 +4,11 @@ require("telescope").setup({
             side_by_side = true,
         },
     },
+    pickers = {
+        find_files = {
+            hidden = true
+        }
+    }
 })
 require("telescope").load_extension("undo")
 

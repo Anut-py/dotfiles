@@ -1,2 +1,5 @@
 **/*.vim
 **/docs/tags
+neomutt/accounts/
+elinks/
+

@@ -1,0 +1,8 @@
+# HTML
+text/html; w3m -sixel -o auto_image=TRUE -o display_image=1 -T text/html %s; nametemplate=%s.html; needsterminal
+text/html; w3m -I %{charset} -T text/html -cols 140 -o display_link_number=1 -dump; copiousoutput
+text/plain; nvim %s
+
+#PDFs
+application/pdf; sumatrapdf file:%s
+
