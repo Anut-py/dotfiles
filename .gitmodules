@@ -53,3 +53,6 @@
 [submodule "nvim/pack/manual/start/catppuccin"]
 	path = nvim/pack/manual/start/catppuccin
 	url = https://github.com/catppuccin/nvim.git
+[submodule "nvim/pack/manual/start/smart-splits.nvim"]
+	path = nvim/pack/manual/start/smart-splits.nvim
+	url = https://github.com/mrjones2014/smart-splits.nvim.git

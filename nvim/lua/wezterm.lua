@@ -2,15 +2,22 @@ local wezterm = {}
 
 function wezterm.start_cmd(prefix, suffix)
     suffix = suffix and ' && ' .. suffix or ''
-    suffix = vim.fn.substitute(suffix, "\\v(\\\\)@<!\"", "\\\"", "g")
-    suffix = vim.fn.substitute(suffix, "\\\\", "\\\\\\\\", "g")
     return function()
         local dir = vim.fn.fnamemodify(vim.fn.expand("%:p"), ":h")
         local command = prefix .. ' --cwd "' .. dir ..
-            '" -- bash -i -c "export NVIM_LISTEN_ADDRESS=\'\\' ..
-            vim.v.servername .. '\'' .. suffix .. '; exec bash"'
+            '" -- zsh -i -c "export NVIM_LISTEN_ADDRESS=\'' ..
+            vim.v.servername .. '\'' .. suffix .. '; exec zsh"'
+        command = vim.fn.substitute(command, "\\v(\\\\)@<!\"", "\\\"", "g")
+        command = vim.fn.substitute(command, "\\\\", "\\\\\\\\", "g")
+        command = vim.fn.substitute(command, "oil://", "", "g")
+        command = vim.fn.substitute(command, "\"\\zs/C/", "C:/", "g")
+
         os.execute(command)
+
+        local prev = vim.opt.messagesopt
+        vim.opt.messagesopt = "wait:0,history:500"
         print("Executed command: " .. command)
+        vim.opt.messagesopt = prev
     end
 end
 
