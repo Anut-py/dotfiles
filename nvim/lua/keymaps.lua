@@ -3,9 +3,6 @@ local wezterm = require('wezterm')
 vim.keymap.set('n', '<M-;>', wezterm.start_cmd(wezterm.split))
 vim.keymap.set('n', '<M-:>', wezterm.start_cmd(wezterm.spawn))
 
-vim.api.nvim_create_user_command("SS", "tabnew | Startify", {})
-vim.api.nvim_create_user_command("TT", "Bd | Startify", {})
-
 vim.api.nvim_create_user_command("Q", "mks! | qa", {})
 vim.api.nvim_create_user_command("WQ", "w | mks! | qa", {})
 

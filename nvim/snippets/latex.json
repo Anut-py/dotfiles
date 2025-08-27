@@ -1,0 +1,59 @@
+{
+    "Environment": {
+        "prefix": ";e",
+        "body": [
+            "\\begin{$1}",
+            "    $2",
+            "\\end{$1}"
+        ]
+    },
+    "DisplayMath": {
+        "prefix": "\\[",
+            "body": [
+                "\\[ $1 \\]"
+            ]
+    },
+    "InlineMath": {
+        "prefix": "\\(",
+            "body": [
+                "\\($1\\)"
+            ]
+    },
+    "DollarMath": {
+        "prefix": "$",
+        "body": [
+            "$$1$"
+        ]
+    },
+    "Quotes": {
+        "prefix": "``",
+        "body": [
+            "``$1''"
+        ]
+    },
+    "Fraction": {
+        "prefix": ";f",
+        "body": [
+            "\\frac{$1}{$2}"
+        ]
+    },
+    "SquareRoot": {
+        "prefix": ";s",
+        "body": [
+            "\\sqrt{$1}"
+        ]
+    },
+    "Angle": {
+        "prefix": ";a",
+        "body": [
+            "\\angle "
+        ]
+    },
+    "MeasuredAngle": {
+        "prefix": ";d",
+        "body": [
+            "\\measuredangle "
+        ]
+    }
+}
+
