@@ -30,6 +30,10 @@ bind pager \031 previous-line		# Mouse wheel
 bind pager \005 next-line		# Mouse wheel
 bind editor <Tab> complete-query
 
+bind index,pager V  noop
+
+# bind V to view attachments, find text/html, view it, exit attachments view, and mark msg as read
+macro index,pager V "<view-attachments><search>html<enter><view-mailcap><exit><clear-flag>N"
 
 # sidebar mappings
 bind index,pager \Ck sidebar-prev
