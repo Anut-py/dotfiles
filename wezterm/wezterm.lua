@@ -8,7 +8,7 @@ config.default_prog = { "zsh" }
 config.audible_bell = "Disabled"
 config.harfbuzz_features = { "calt=0" }
 config.color_scheme = "Catppuccin Mocha"
-config.font_size = 10.0
+config.font_size = 8.0
 config.leader = { key = ' ', mods = 'CTRL' }
 
 config.keys = {

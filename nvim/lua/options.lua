@@ -11,14 +11,23 @@ vim.opt.foldmethod = "indent"
 vim.opt.foldcolumn = "auto"
 vim.opt.foldlevelstart = 99
 
+vim.opt.formatoptions = "jcroql"
+vim.opt.nrformats:append("alpha")
+
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.opt.list = true
 
-vim.opt.conceallevel = 2
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+
+vim.opt.conceallevel = 0
 
 vim.opt.scrolloff = 8
+
+vim.opt.spell = true
+vim.opt.spelllang = "en_us"
 
 -- Force MSYS stuff on Windows
 vim.opt.makeprg = "make"

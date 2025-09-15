@@ -13,10 +13,6 @@
 [submodule "pack/manual/start/vimtex"]
 	path = nvim/pack/manual/start/vimtex
 	url = https://github.com/lervag/vimtex.git
-[submodule "pack/manual/start/nvim-treesitter"]
-	path = nvim/pack/manual/start/nvim-treesitter
-	url = https://github.com/nvim-treesitter/nvim-treesitter.git
-	branch = main
 [submodule "nvim/pack/manual/start/catppuccin"]
 	path = nvim/pack/manual/start/catppuccin
 	url = https://github.com/catppuccin/nvim.git
@@ -25,7 +21,7 @@
 	url = https://github.com/mrjones2014/smart-splits.nvim.git
 [submodule "nvim/pack/manual/start/mini.nvim"]
 	path = nvim/pack/manual/start/mini.nvim
-	url = https://github.com/echasnovski/mini.nvim.git
+	url = https://github.com/nvim-mini/mini.nvim.git
 [submodule "nvim/pack/manual/start/nvim-lspconfig"]
 	path = nvim/pack/manual/start/nvim-lspconfig
-	url = https://github.com/neovim/nvim-lspconfig.git
+	url = https://github.com/neovim/nvim-lspconfig

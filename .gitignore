@@ -1,4 +1,5 @@
 **/*.vim
 **/docs/tags
+nvim/spell/
 neomutt/accounts/
 
