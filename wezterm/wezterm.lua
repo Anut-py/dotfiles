@@ -6,6 +6,12 @@ local config = wezterm.config_builder()
 
 config.default_prog = { "zsh" }
 config.audible_bell = "Disabled"
+config.visual_bell = {
+  fade_in_function = 'EaseIn',
+  fade_in_duration_ms = 50,
+  fade_out_function = 'EaseOut',
+  fade_out_duration_ms = 50,
+}
 config.harfbuzz_features = { "calt=0" }
 config.color_scheme = "Catppuccin Mocha"
 config.font_size = 8.0
