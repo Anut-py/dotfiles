@@ -14,9 +14,13 @@ ln -s $SCRIPT_DIR/nvim $XDG_CONFIG_HOME/nvim
 ln -s $SCRIPT_DIR/wezterm $XDG_CONFIG_HOME/wezterm
 ln -s $SCRIPT_DIR/ripgreprc $XDG_CONFIG_HOME/ripgreprc
 
+mkdir -p $XDG_CONFIG_HOME/git
+ln -s $SCRIPT_DIR/gitconfig $XDG_CONFIG_HOME/git/config
+
 echo "export BASE_DIR=\"$BASE_DIR\"" >> ~/.zshrc
 echo "source \"$SCRIPT_DIR/zshrc\"" >> ~/.zshrc
 echo "" >> ~/.zshrc
 
-echo Install zsh, nvim, clangd, ripgrep, latex stuff, neomutt, w3m, wezterm manually
+echo Install zsh, nvim, clangd, ripgrep, latex stuff, neomutt, w3m, wezterm, \
+    bat, delta, git manually
 

@@ -1,0 +1,18 @@
+[user]
+	email = anandswaroop191@gmail.com
+	name = Anand Swaroop
+[core]
+	autocrlf = input
+	safecrlf = false
+	editor = nvim
+	pager = delta
+[credential]
+	helper = store
+[credential "https://git.overleaf.com"]
+	provider = generic
+[interactive]
+	diffFilter = delta --color-only
+[delta]
+	navigate = true
+[merge]
+	conflictStyle = zdiff3
