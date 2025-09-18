@@ -23,12 +23,19 @@ require('mini.completion').setup({
     lsp_completion = { source_func = 'omnifunc', auto_setup = false }
 })
 
+_G.cr_action = function()
+  if vim.fn.complete_info()['selected'] == -1 then return '\24\24\r' end
+  return '\r'
+end
+
+vim.keymap.set('i', '<CR>', 'v:lua.cr_action()', { expr = true })
+
 local on_attach = function(args)
     vim.bo[args.buf].omnifunc = 'v:lua.MiniCompletion.completefunc_lsp'
 end
 vim.api.nvim_create_autocmd('LspAttach', { callback = on_attach })
 
-vim.opt.completeopt = "menuone,noinsert,fuzzy"
+vim.opt.completeopt = "menuone,noinsert,noselect,fuzzy"
 
 local miniclue = require('mini.clue')
 miniclue.setup({

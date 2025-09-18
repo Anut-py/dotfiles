@@ -1,7 +1,14 @@
 vim.opt.mouse = ""
 
+vim.opt.undofile = true
+vim.opt.undodir = vim.fn.stdpath("data") .. "/undo"
+
+vim.opt.splitright = true
+vim.opt.splitbelow = true
+
 vim.opt.number = true
 vim.opt.relativenumber = true
+vim.opt.cursorline = true
 
 vim.opt.textwidth = 80
 vim.opt.colorcolumn = "+1"
