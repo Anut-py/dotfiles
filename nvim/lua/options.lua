@@ -12,11 +12,22 @@ vim.opt.cursorline = true
 
 vim.opt.textwidth = 80
 vim.opt.colorcolumn = "+1"
-vim.opt.signcolumn = "yes:2"
+vim.opt.signcolumn = "yes:1"
 
 vim.opt.foldmethod = "indent"
-vim.opt.foldcolumn = "auto"
+vim.api.nvim_create_autocmd("LspAttach", {
+  callback = function()
+    vim.opt_local.foldmethod = "expr"
+    vim.opt_local.foldexpr = "v:lua.vim.lsp.foldexpr()"
+  end
+})
+vim.api.nvim_create_autocmd("LspDetach", {
+  callback = function()
+    vim.opt_local.foldmethod = "indent"
+  end
+})
 vim.opt.foldlevelstart = 99
+vim.opt.foldcolumn = "1"
 
 vim.opt.formatoptions = "jcroql"
 vim.opt.nrformats:append("alpha")
@@ -33,19 +44,16 @@ vim.opt.conceallevel = 0
 
 vim.opt.scrolloff = 8
 
-vim.opt.spell = true
+vim.opt.spell = false
 vim.opt.spelllang = "en_us"
 
 -- Force MSYS stuff on Windows
-vim.opt.makeprg = "make"
 vim.opt.sh = "zsh"
 vim.opt.shcf = "-c"
 vim.opt.shq = ""
 vim.opt.sxq = ""
 vim.opt.ssl = true
 vim.opt.ffs = "unix,dos"
-
-vim.cmd("colorscheme catppuccin-mocha")
 
 vim.diagnostic.config({
     virtual_text = true,
