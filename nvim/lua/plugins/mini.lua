@@ -23,13 +23,6 @@ require('mini.completion').setup({
     lsp_completion = { source_func = 'omnifunc', auto_setup = false }
 })
 
-_G.cr_action = function()
-  if vim.fn.complete_info()['selected'] == -1 then return '\24\24\r' end
-  return '\r'
-end
-
-vim.keymap.set('i', '<CR>', 'v:lua.cr_action()', { expr = true })
-
 local on_attach = function(args)
     vim.bo[args.buf].omnifunc = 'v:lua.MiniCompletion.completefunc_lsp'
 end
@@ -37,56 +30,11 @@ vim.api.nvim_create_autocmd('LspAttach', { callback = on_attach })
 
 vim.opt.completeopt = "menuone,noinsert,noselect,fuzzy"
 
-local miniclue = require('mini.clue')
-miniclue.setup({
-    triggers = {
-        -- Leader triggers
-        { mode = 'n', keys = '<Leader>' },
-        { mode = 'x', keys = '<Leader>' },
-
-        -- Built-in completion
-        { mode = 'i', keys = '<C-x>' },
-
-        -- `g` key
-        { mode = 'n', keys = 'g' },
-        { mode = 'x', keys = 'g' },
-
-        -- Marks
-        { mode = 'n', keys = "'" },
-        { mode = 'n', keys = '`' },
-        { mode = 'x', keys = "'" },
-        { mode = 'x', keys = '`' },
-
-        -- Registers
-        { mode = 'n', keys = '"' },
-        { mode = 'x', keys = '"' },
-        { mode = 'i', keys = '<C-r>' },
-        { mode = 'c', keys = '<C-r>' },
-
-        -- Window commands
-        { mode = 'n', keys = '<C-w>' },
-
-        -- `z` key
-        { mode = 'n', keys = 'z' },
-        { mode = 'x', keys = 'z' },
-    },
-
-    clues = {
-        -- Enhance this by adding descriptions for <Leader> mapping groups
-        miniclue.gen_clues.builtin_completion(),
-        miniclue.gen_clues.g(),
-        miniclue.gen_clues.marks(),
-        miniclue.gen_clues.registers(),
-        miniclue.gen_clues.windows(),
-        miniclue.gen_clues.z(),
-    },
-})
-
 require('mini.pick').setup()
 require('mini.extra').setup()
 
-vim.keymap.set('n', '<Leader><Leader>f', ":Pick ", {desc = "Pick pickers"})
-vim.keymap.set('n', '<Leader>ff', ":Pick files<CR>", {desc = "Pick files"})
+vim.keymap.set('n', '<Leader><Leader>f', ":Pick ", { desc = "Pick pickers" })
+vim.keymap.set('n', '<Leader>ff', ":Pick files<CR>", { desc = "Pick files" })
 vim.keymap.set('n', '<Leader>fh', ":Pick help<CR>", { desc = "Pick help" })
 
 local buffer_mappings = {
@@ -97,9 +45,9 @@ local buffer_mappings = {
         end
     }
 }
-vim.keymap.set('n', '<Leader>fb', function ()
+vim.keymap.set('n', '<Leader>fb', function()
     MiniPick.builtin.buffers({}, { mappings = buffer_mappings })
-end, {desc = "Pick buffers"})
+end, { desc = "Pick buffers" })
 
 require('mini.git').setup()
 
@@ -119,4 +67,3 @@ vim.keymap.set({ 'n', 'x' }, '<Leader>go', require('mini.diff').toggle_overlay,
 
 require('mini.comment').setup()
 require('mini.ai').setup()
-

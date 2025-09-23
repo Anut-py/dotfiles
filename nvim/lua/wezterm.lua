@@ -1,6 +1,8 @@
 local wezterm = {}
 
-function wezterm.start_cmd(prefix, suffix)
+WEZTERM_DEBUG = false
+
+function wezterm.start_zsh(prefix, suffix)
     suffix = suffix and ' && ' .. suffix or ''
     return function()
         local dir = vim.fn.fnamemodify(vim.fn.expand("%:p"), ":h")
@@ -14,11 +16,14 @@ function wezterm.start_cmd(prefix, suffix)
 
         os.execute(command)
 
-        local prev = vim.opt.messagesopt
-        vim.opt.messagesopt = "wait:0,history:500"
-        print("Executed command: " .. command)
-        vim.opt.messagesopt = prev
+        if WEZTERM_DEBUG then
+            print("Executed command: " .. command)
+        end
     end
+end
+
+function wezterm.quick_prog(command)
+    return "export QUICK_PROG='" .. command .. "'"
 end
 
 wezterm.split = 'wezterm cli split-pane --percent 30'
