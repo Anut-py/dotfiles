@@ -4,5 +4,5 @@ text/html; w3m -sixel -o auto_image=TRUE -o display_image=1 -T text/html %s; nam
 text/plain; nvim %s
 
 #PDFs
-application/pdf; sumatrapdf file:%s
+application/pdf; $PDF_VIEWER %s &
 
