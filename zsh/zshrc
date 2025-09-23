@@ -3,6 +3,9 @@
 # Use this script to set up the shell (call from .zshrc)
 # Set the BASE_DIR env variable before sourcing
 
+# Prevent esc+key from registering as alt+key
+KEYTIMEOUT=1
+
 script_dir="$(dirname "$0")"
 source $script_dir/env
 
@@ -29,19 +32,17 @@ zstyle ':completion:*:warnings' format '%B%F{red}No matches!%f%b'
 zstyle ':completion:*:*:*:commands' list-colors '=(#b)(*)=36'
 zstyle ':completion:*:*:*:options' list-colors '=(#b)(--*)=35'
 
-# Make C drive completion work on msys2
 if [[ -d /c ]] then
+    # Make C drive completion work on msys2
     zstyle ':completion:*' fake-files /: '/:c'
+
+    # Force forward slashes on windows
+    alias fd='fd --path-separator=//'
 fi
 
-# Nicer prompt + git branch
-function git_branch() {
-  ref=$(git symbolic-ref --short HEAD 2>/dev/null) || return
-  echo " %F{magenta}$ref%f"
-}
-
+# Nicer prompt
 setopt prompt_subst
-PROMPT='%F{green}%n %F{blue}%~%f$(git_branch) %# '
+PROMPT='%F{green}%n %F{blue}%~%f %# '
 RPROMPT='%F{%(?.green.red)}%?  %f%F{yellow}%*%f'
 
 # Next few sections are copied from the msys2 .bashrc
@@ -69,10 +70,12 @@ alias la='ls -A'
 alias l='ls -CF'
 
 # bat as pager
-export PAGER="bat -p"
+bat_cmd=$(whence -p "bat" > /dev/null 2>&1 && echo "bat" || echo "batcat")
+export PAGER="$bat_cmd -p"
 export BAT_PAGER="less -FR"
-export MANROFFOPT="-c"
-export MANPAGER="sh -c 'col -bx | bat -plman'"
+
+# nvim as man pager
+export MANPAGER="nvim +Man!"
 
 export TMPDIR=$XDG_RUNTIME_DIR
 
@@ -80,5 +83,22 @@ export PATH=$PATH:$XDG_BIN_HOME
 
 export RIPGREP_CONFIG_PATH=$XDG_CONFIG_HOME/ripgreprc
 
+# Quickly run programs sent from nvim
+if [[ -n "$QUICK_PROG" ]]; then
+  alias p="$QUICK_PROG"
+fi
+
 bindkey -v
+
+source <(fzf --zsh)
+
+# fzf env variables
+fzf-env-widget() {
+  local selected
+  selected=$(print -l ${(k)parameters} | fzf) || return
+  LBUFFER+="$selected"
+  zle redisplay
+}
+zle -N fzf-env-widget
+bindkey '^E' fzf-env-widget
 

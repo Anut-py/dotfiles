@@ -1,0 +1,36 @@
+#!/bin/bash
+
+# CLI argument: base directory (default ~)
+
+echo Install bat, clangd, delta, fd, git, img2sixel, latex stuff, neomutt, \
+    nvim, pdf viewer, ripgrep, w3m, wezterm, zsh manually
+
+secs=5
+while [ $secs -ge 0 ]; do
+    echo -ne "Exit now if necessary ($secs)\033[0K\r"
+    sleep 1
+    : $((secs--))
+done
+
+echo -ne "\033[0K"
+export SCRIPT_DIR="$(dirname "$(realpath "$0")")"
+
+export BASE_DIR=${1:~}
+. $SCRIPT_DIR/env
+
+ln -s $SCRIPT_DIR/../gitui $XDG_CONFIG_HOME/gitui
+ln -s $SCRIPT_DIR/../latexmk $XDG_CONFIG_HOME/latexmk
+ln -s $SCRIPT_DIR/../neomutt $XDG_CONFIG_HOME/neomutt
+ln -s $SCRIPT_DIR/../nvim $XDG_CONFIG_HOME/nvim
+ln -s $SCRIPT_DIR/../wezterm $XDG_CONFIG_HOME/wezterm
+ln -s $SCRIPT_DIR/../ripgreprc $XDG_CONFIG_HOME/ripgreprc
+
+mkdir -p $XDG_CONFIG_HOME/git
+ln -s $SCRIPT_DIR/../gitconfig $XDG_CONFIG_HOME/git/config
+
+echo "export BASE_DIR=\"$BASE_DIR\"" >> ~/.zshrc
+echo "source \"$SCRIPT_DIR/zshrc\"" >> ~/.zshrc
+echo "" >> ~/.zshrc
+
+echo Set PDF_VIEWER in zshrc
+
