@@ -83,7 +83,36 @@ config.keys = {
             end),
         },
     },
+    {
+        key = 'z',
+        mods = 'LEADER',
+        action = act.TogglePaneZoomState,
+    },
 }
+
+local shifts = { ")", "!", "@", "#", "$", "%", "^", "&", "*", "(" }
+for i=1,9 do
+    table.insert(config.keys, {
+      key = tostring(i),
+      mods = 'SUPER',
+      action = wezterm.action.DisableDefaultAssignment,
+    })
+    table.insert(config.keys, {
+      key = tostring(i),
+      mods = 'SHIFT|CTRL',
+      action = wezterm.action.DisableDefaultAssignment,
+    })
+    table.insert(config.keys, {
+      key = shifts[i],
+      mods = 'CTRL',
+      action = wezterm.action.DisableDefaultAssignment,
+    })
+    table.insert(config.keys, {
+      key = shifts[i],
+      mods = 'SHIFT|CTRL',
+      action = wezterm.action.DisableDefaultAssignment,
+    })
+end
 
 wezterm.on('gui-startup', function(cmd)
   local _, _, window = mux.spawn_window(cmd or {})
