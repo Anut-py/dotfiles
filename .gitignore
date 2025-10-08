@@ -1,5 +1,6 @@
 **/*.vim
+**/__pycache__
 **/docs/tags
-nvim/spell/
 neomutt/accounts/
+nvim/spell/
 

@@ -20,9 +20,6 @@ SAVEHIST=10000
 HISTFILE=~/.zsh_history
 
 # Completion
-autoload compinit
-compinit
-
 eval $(dircolors -b $script_dir/.dircolors)
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
@@ -68,20 +65,6 @@ alias vdir='ls --color=auto --format=long'
 alias ll='ls -l'
 alias la='ls -A'
 alias l='ls -CF'
-
-# bat as pager
-bat_cmd=$(whence -p "bat" > /dev/null 2>&1 && echo "bat" || echo "batcat")
-export PAGER="$bat_cmd -p"
-export BAT_PAGER="less -FR"
-
-# nvim as man pager
-export MANPAGER="nvim +Man!"
-
-export TMPDIR=$XDG_RUNTIME_DIR
-
-export PATH=$PATH:$XDG_BIN_HOME
-
-export RIPGREP_CONFIG_PATH=$XDG_CONFIG_HOME/ripgreprc
 
 # Quickly run programs sent from nvim
 if [[ -n "$QUICK_PROG" ]]; then

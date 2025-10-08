@@ -29,7 +29,6 @@ vim.api.nvim_create_autocmd("LspDetach", {
 vim.opt.foldlevelstart = 99
 vim.opt.foldcolumn = "1"
 
-vim.opt.formatoptions = "jcroql"
 vim.opt.nrformats:append("alpha")
 
 vim.opt.tabstop = 4
@@ -41,6 +40,7 @@ vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
 vim.opt.conceallevel = 0
+vim.opt.concealcursor = "nc"
 
 vim.opt.scrolloff = 8
 

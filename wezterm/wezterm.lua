@@ -88,6 +88,11 @@ config.keys = {
         mods = 'LEADER',
         action = act.TogglePaneZoomState,
     },
+    {
+        key = ' ',
+        mods = 'CTRL|LEADER',
+        action = act.SendKey({ key = ' ', mods = 'CTRL' })
+    }
 }
 
 local shifts = { ")", "!", "@", "#", "$", "%", "^", "&", "*", "(" }
@@ -95,22 +100,22 @@ for i=1,9 do
     table.insert(config.keys, {
       key = tostring(i),
       mods = 'SUPER',
-      action = wezterm.action.DisableDefaultAssignment,
+      action = act.SendKey({ key = tostring(i), mods = 'SUPER' }),
     })
     table.insert(config.keys, {
       key = tostring(i),
       mods = 'SHIFT|CTRL',
-      action = wezterm.action.DisableDefaultAssignment,
+      action = act.SendKey({ key = tostring(i), mods = 'SHIFT|CTRL' }),
     })
     table.insert(config.keys, {
       key = shifts[i],
       mods = 'CTRL',
-      action = wezterm.action.DisableDefaultAssignment,
+      action = act.SendKey({ key = shifts[i], mods = 'CTRL' }),
     })
     table.insert(config.keys, {
       key = shifts[i],
       mods = 'SHIFT|CTRL',
-      action = wezterm.action.DisableDefaultAssignment,
+      action = act.SendKey({ key = shifts[i], mods = 'SHIFT|CTRL' }),
     })
 end
 

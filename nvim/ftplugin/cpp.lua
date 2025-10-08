@@ -5,8 +5,8 @@ local ext = windows and ".exe" or ""
 
 vim.keymap.set("n", "<localleader>c", function ()
     local path = vim.fn.expand("%:r")
-    path = vim.fn.substitute(path, "\\", "/", "g")
-    vim.cmd("Make %<")
+    path = vim.fn.substitute(path, "\\\\", "/", "g")
+    vim.cmd("Make " .. path)
 end, { buffer = true, noremap = true, silent = true })
 
 vim.keymap.set("n", "<localleader>r", function()
