@@ -45,6 +45,11 @@ vim.pack.add({
         version = 'a2ff28abdb2d89725192db5b8562977d392a4d3f'
     },
     {
+        src = 'https://github.com/jpalardy/vim-slime.git',
+        name = 'vim-slime',
+        version = '67b24bf93cff3ac39db94694a7aefcdb3f44b927'
+    },
+    {
         src = 'https://github.com/lervag/vimtex',
         name = 'vimtex',
         version = '6fabe8b7b5e83f753eb930036b1d941b2f7d3d4d'
@@ -58,5 +63,7 @@ require("plugins.mason")
 require("plugins.mini")
 require("plugins.oil")
 require("plugins.smart-splits")
-require("plugins.vimtex")
+
+vim.g.slime_target = "wezterm"
+vim.g.slime_default_config = { pane_direction = "right" }
 

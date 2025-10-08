@@ -1,0 +1,9 @@
+defaultIndent: '    '
+modifyLineBreaks:
+  textWrapOptions:
+    when: after
+    columns: 80
+    blocksFollow:
+      other: .*
+    blocksBeginWith:
+      other: .*

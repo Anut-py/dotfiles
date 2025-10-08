@@ -24,6 +24,7 @@ ln -s $SCRIPT_DIR/../neomutt $XDG_CONFIG_HOME/neomutt
 ln -s $SCRIPT_DIR/../nvim $XDG_CONFIG_HOME/nvim
 ln -s $SCRIPT_DIR/../wezterm $XDG_CONFIG_HOME/wezterm
 ln -s $SCRIPT_DIR/../ripgreprc $XDG_CONFIG_HOME/ripgreprc
+ln -s $SCRIPT_DIR/../latexindent.yaml $XDG_CONFIG_HOME/latexindent.yaml
 
 mkdir -p $XDG_CONFIG_HOME/git
 ln -s $SCRIPT_DIR/../gitconfig $XDG_CONFIG_HOME/git/config
