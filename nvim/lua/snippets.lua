@@ -1,32 +1,34 @@
 local tr = {}
 local sl = ";"
 
-function tr.def_snip(trig, snip, buf)
-    vim.keymap.set("i", sl .. trig, function()
+function tr.def_snip(trig, snip, buf, leader)
+    leader = leader or sl
+    vim.keymap.set("i", leader .. trig, function()
         vim.snippet.expand(snip)
     end, {buffer = not not buf})
     local fc = string.sub(snip, 1, 1)
     if fc ~= string.upper(fc) then
         local tfc = string.sub(trig, 1, 1)
-        vim.keymap.set("i", sl .. string.upper(tfc) .. string.sub(trig, 2), function()
+        vim.keymap.set("i", leader .. string.upper(tfc) .. string.sub(trig, 2), function()
             vim.snippet.expand(string.upper(fc) .. string.sub(snip, 2))
         end, {buffer = not not buf})
-        vim.keymap.set("i", sl .. string.upper(trig), function()
+        vim.keymap.set("i", leader .. string.upper(trig), function()
             vim.snippet.expand(string.upper(fc) .. string.sub(snip, 2))
         end, {buffer = not not buf})
     end
 end
 
-function tr.def_abb(trig, full, buf)
-    vim.keymap.set("i", sl .. trig, full, {buffer = not not buf})
+function tr.def_abb(trig, full, buf, leader)
+    leader = leader or sl
+    vim.keymap.set("i", leader .. trig, full, {buffer = not not buf})
     local fc = string.sub(full, 1, 1)
     if fc ~= string.upper(fc) then
         local tfc = string.sub(trig, 1, 1)
         vim.keymap.set("i",
-            sl .. string.upper(tfc) .. string.sub(trig, 2),
+            leader .. string.upper(tfc) .. string.sub(trig, 2),
             string.upper(fc) .. string.sub(full, 2), {buffer = not not buf})
         vim.keymap.set("i",
-            sl .. string.upper(trig),
+            leader .. string.upper(trig),
             string.upper(fc) .. string.sub(full, 2), {buffer = not not buf})
     end
 end
@@ -50,6 +52,9 @@ function tr.setup()
     tr.def_abb("sym", "Symmetry")
     tr.def_abb("par", "parallel")
     tr.def_abb("per", "perpendicular")
+    tr.def_abb("prr", "primitive root")
+    tr.def_abb("qr", "quadratic")
+    tr.def_abb("qrr", "quadratic residue")
 
     tr.def_abb("ind", "We proceed by induction. ")
     tr.def_abb("wd", "we denote ")

@@ -32,8 +32,9 @@ bind editor <Tab> complete-query
 
 bind index,pager V  noop
 
-# bind V to view attachments, find text/html, view it, exit attachments view, and mark msg as read
-macro index,pager V "<view-attachments><search>html<enter><view-mailcap><exit><clear-flag>N"
+# open various attachment types
+macro index,pager V "<view-attachments><search>html<enter><view-mailcap><exit><clear-flag>N<previous-line>"
+macro index,pager P "<view-attachments><search>pdf<enter><view-mailcap><exit><clear-flag>N<previous-line>"
 
 # sidebar mappings
 bind index,pager \Ck sidebar-prev

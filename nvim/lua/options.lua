@@ -33,6 +33,8 @@ vim.opt.nrformats:append("alpha")
 
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
+vim.opt.breakindent = true
+vim.opt.showbreak = "+++ "
 vim.opt.expandtab = true
 vim.opt.list = true
 
@@ -46,6 +48,11 @@ vim.opt.scrolloff = 8
 
 vim.opt.spell = false
 vim.opt.spelllang = "en_us"
+
+vim.opt.formatoptions = "jro/q"
+
+vim.opt.completeopt = { "menuone", "noinsert", "noselect", "fuzzy", "popup" }
+vim.opt.complete = { "o" }
 
 -- Force MSYS stuff on Windows
 vim.opt.sh = "zsh"

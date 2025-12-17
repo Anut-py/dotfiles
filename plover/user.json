@@ -1,9 +1,86 @@
 {
+    "#TPHAPBD": "Anand",
+    "#SWARP": "Swaroop",
+    "#PH-PB": "Anand Swaroop",
+
     "#TPER/PHAT": "Fermat",
+    "#PWER/TRAPBD": "Bertrand",
+    "#HRERGD": "Legendre",
+
     "SOEUT": "{cyto^}",
     "TPHAOUBLG": "{nucleo^}",
-    "THAOEUPBL": "thymine",
-    "PEUR/PHEUD/KWRAOEPB": "pyrimidine",
-    "#HABS/PWURG": "Habsburg",
-    "#HAPS/PWURG": "Hapsburg"
+
+    "A*FPBT": "assent",
+
+    "KWRAOEUS": "{^ise}",
+
+    "#H-PBS": "NHS",
+
+    "WEZ": "wez",
+    "#WEZ": "Wez",
+    "WEZ/TERPL": "wezterm",
+    "#WEZ/TERPL": "WezTerm",
+    "TPHEUFPL": "nvim",
+    "TPH*EUFPL": "nymph",
+    "#TPHEUFPL": "Neovim",
+
+    "RA*U": "{plover:solo_dict:+raw.py}",
+    "O*ERT": "{plover:solo_dict:+ortho.py}",
+    "PHROEUFBGS": "{plover:focus}",
+    "PHROEFBG": "{plover:focus}",
+    "PHROEFBGS": "{plover:focus}",
+    "PHROFG": "{plover:configure}",
+    "PHROLG": "{plover:toggle}",
+    "PHR*UP": "{plover:lookup}",
+    "PHRUP": "{plover:lookup}",
+    "TKUPT": "{plover:add_translation}",
+
+    "KPA": "{}{:case:cap_first_word}",
+    "KPA*": "{^}{-|}",
+    "KPA*L": "{:case:upper_first_word}",
+    "KPA*LD": "{:retro_case:upper_first_word}",
+    "KPA*D": "{*-|}",
+    "KA*PS": "{MODE:CAPS}",
+    "KA*PD": "{:retro_case:cap_first_word}",
+    "SKWR-F": "{}{:case:cap_first_word}",
+    "SKWR-FP": "{:case:upper_first_word}",
+    "SKWR-FPD": "{:retro_case:upper_first_word}",
+    "SKWR-FD": "{:retro_case:cap_first_word}",
+    "SKWR-R": "{:case:lower_first_char}",
+    "SKWR-RD": "{:retro_case:lower_first_char}",
+    "HRO*ER": "{:case:lower_first_char}",
+    "HRO*ERD": "{:retro_case:lower_first_char}",
+
+    "PR*EPB": "{^~|)}",
+    "PREPB": "{~|(^}",
+
+    "TPWHREFPB": "{#F11}",
+    "TPWRAOE": "{#F3}",
+    "TPWAOE": "{#F3}",
+    "TPWAOEUF": "{#F5}",
+    "TPWAOEUPB": "{#F9}",
+    "TPWAEUT": "{#F8}",
+    "TPWO": "{#F2}",
+    "TPWOUR": "{#F4}",
+    "TPWEUBGS": "{#F6}",
+    "TPWEFPB": "{#F7}",
+    "TPWEFL": "{#F12}",
+    "TPWEPB": "{#F10}",
+    "TPWUPB": "{#F1}",
+    "TPHREFPB": "{#F11}",
+
+    "TPEFBG": "{#Escape}{^}",
+    "TA*B": "{^}{#Tab}{^}",
+    "PW*FP": "{#Control(BackSpace)}{^}",
+    "PW-FP": "{#BackSpace}{^}",
+    "R*EFT": "{mode:reset}",
+    "R*R": "{^\n}{^}{-|}",
+    "R-R": "{^~|\n^}",
+    "*UPD": "{*<}",
+
+    "SP-P": "{^ ^}",
+    "SP-PD": "{*?}",
+    "SP-FP": "{*!}",
+
+    "#*": "{*}"
 }

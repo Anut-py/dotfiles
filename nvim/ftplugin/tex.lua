@@ -35,6 +35,9 @@ vim.fn['vimtex#imaps#add_map']({
 
 local snippets = require("snippets")
 snippets.def_snip("ee", "\\begin{$1}\n\t$0\n\\end{$1}", true)
+snippets.def_snip("e1", "\\begin{$1}{$2}\n\t$0\n\\end{$1}", true)
+snippets.def_snip("e2", "\\begin{$1}{$2}{$3}\n\t$0\n\\end{$1}", true)
+snippets.def_snip("e3", "\\begin{$1}{$2}{$3}{$4}\n\t$0\n\\end{$1}", true)
 snippets.def_snip("bf", [[\textbf{$1}]], true)
 snippets.def_snip("it", [[\textit{$1}]], true)
 snippets.def_snip("im", [[\$$1\$]], true)
@@ -46,6 +49,8 @@ snippets.def_snip(",f", [[\frac{$1}{$2}]], true)
 snippets.def_snip(",s", [[\sqrt{$1}]], true)
 snippets.def_abb(",a", "\\angle ", true)
 snippets.def_abb(",d", "\\measuredangle ", true)
+snippets.def_snip("/ ", "^{$1}", true)
+snippets.def_snip("[ ", "_{$1}", true)
 
 vim.api.nvim_create_autocmd("User", {
     pattern = "VimtexEventInitPost",
@@ -55,12 +60,14 @@ vim.api.nvim_create_autocmd("User", {
             local u = string.upper(c)
             snippets.def_abb(";" .. c, "$" .. c .. "$", true)
             snippets.def_abb(";" .. u, "$" .. u .. "$", true)
-            snippets.def_abb("." .. c, "_" .. c, true)
-            snippets.def_abb("." .. u, "_" .. u, true)
+            snippets.def_abb("[" .. c, "_" .. c, true)
+            snippets.def_abb("[" .. u, "_" .. u, true)
+            snippets.def_abb("/" .. c, "^" .. c, true)
+            snippets.def_abb("/" .. u, "^" .. u, true)
         end
 
         for i = 0, 9 do
-            snippets.def_abb("." .. tostring(i), "_" .. tostring(i), true)
+            snippets.def_abb("[" .. tostring(i), "_" .. tostring(i), true)
             snippets.def_abb("/" .. tostring(i), "^" .. tostring(i), true)
         end
 

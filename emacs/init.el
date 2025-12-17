@@ -17,3 +17,11 @@
 
 (load-theme 'catppuccin :no-confirm)
 
+(setq god-exempt-major-modes nil)
+(setq god-exempt-predicates nil)
+(require 'god-mode)
+
+(god-mode-all)
+
+(global-set-key (kbd "<escape>") #'god-mode-all)
+

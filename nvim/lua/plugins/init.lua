@@ -58,12 +58,43 @@ vim.pack.add({
 
 vim.cmd("colorscheme catppuccin-mocha")
 
-require("plugins.marks")
-require("plugins.mason")
+vim.cmd("packadd nvim.undotree")
+
+-- marks.nvim
+require('marks').setup({
+    sign_priority = { lower=10, upper=15, builtin=8 }
+})
+
+-- mason
+require("mason").setup()
+require("mason-lspconfig").setup({
+    ensure_installed = {"lua_ls", "basedpyright", "texlab"}
+})
+
 require("plugins.mini")
-require("plugins.oil")
+
+-- oil.nvim
+local oil = require("oil")
+
+oil.setup({
+    view_options = {
+        show_hidden = true
+    }
+})
+
+vim.keymap.set('n', '<M-/>', oil.open_float, { noremap = true, silent = true })
+vim.keymap.set('n', '<M-?>', function ()
+    oil.open_float(vim.fn.getcwd())
+end, { noremap = true, silent = true })
+
 require("plugins.smart-splits")
 
+-- vim-slime
 vim.g.slime_target = "wezterm"
+vim.g.slime_no_mappings = 1
 vim.g.slime_default_config = { pane_direction = "right" }
+vim.keymap.set("n", "<leader>vss", "<Plug>SlimeParagraphSend", {})
+vim.keymap.set("n", "<leader>vsl", "<Plug>SlimeLineSend", {})
+vim.keymap.set("n", "<leader>vs", "<Plug>SlimeMotionSend", {})
+vim.keymap.set("v", "<leader>vs", "<Plug>SlimeRegionSend", {})
 

@@ -1,0 +1,5 @@
+Modifications to Stan's dictionaries:
+- Removed several invalid keys.
+- Removed RE/TKWRES/-G "redressing" - now outputs "regressing," use RE/TKRES/-G
+  instead.
+

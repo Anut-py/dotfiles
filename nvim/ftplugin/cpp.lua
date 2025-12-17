@@ -14,3 +14,14 @@ vim.keymap.set("n", "<localleader>r", function()
     wezterm.start_zsh(wezterm.split, wezterm.quick_prog(executable))()
 end, { buffer = true, noremap = true, silent = true })
 
+vim.keymap.set("n", "<localleader>ps", "\"+PgcGgggqgcGo<C-u>starter<C-j>", {
+    buffer = true,
+    remap = true,
+    silent = true,
+    desc = "Paste problem statement as comment and expand starter snippet"
+})
+
+local snippets = require("snippets")
+snippets.def_snip("rr", "$1.begin(), $1.end()", true)
+snippets.def_snip("co", "cout << $1 << endl;", true)
+

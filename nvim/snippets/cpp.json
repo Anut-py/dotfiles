@@ -67,6 +67,17 @@
             "ifstream fin(filename \".in\");",
             "ofstream fout(filename \".out\");"
         ]
+    },
+    "Testcases": {
+        "prefix": "cint",
+        "body": [
+            "int tst;",
+            "cin >> tst;",
+            "while (tst --)",
+            "{",
+            "    $0",
+            "}"
+        ]
     }
 }
 
